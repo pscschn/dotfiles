@@ -1,0 +1,62 @@
+---
+- name: Include tmux vars
+  ansible.builtin.set_fact:
+    tmux_plugins: "/home/{{ target_user }}/.tmux/plugins"
+
+- name: Ensure tmux is installed
+  ansible.builtin.package:
+    name: tmux
+    state: present
+
+- name: Ensure TPM directory exists
+  ansible.builtin.file:
+    path: "{{ tmux_plugins }}"
+    state: directory
+    mode: '0755'
+    owner: "{{ target_user }}"
+    recurse: true
+
+- name: Clone the Tmux Plugin Manager repository
+  ansible.builtin.git:
+    repo: "https://github.com/tmux-plugins/tpm"
+    dest: "{{ tmux_plugins }}/tpm"
+    clone: true
+    update: true
+    force: true
+    version: master
+
+- name: Ensure target user has write permissions on TPM directory
+  ansible.builtin.file:
+    path: "{{ tmux_plugins }}/tpm"
+    state: directory
+    recurse: true
+    owner: "{{ target_user }}"
+    mode: "0755"
+  become: true
+
+- name: Ensure history sharing is enabled in .bashrc
+  ansible.builtin.lineinfile:
+    path: "/home/{{ target_user }}/.bashrc"
+    search_string: export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+    line: export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+- name: Ensure tmux config is deployed
+  ansible.builtin.template:
+    src: "{{ role_path }}/templates/tmux/tmux.conf.j2"
+    dest: "/home/{{ target_user }}/.tmux.conf"
+    mode: "u=rw,g=rw,o=r"
+    owner: "{{ target_user }}"
+
+- name: Install tmux tpm plugins
+  ansible.builtin.shell: |
+    TMUX_PLUGIN_MANAGER_PATH={{ tmux_plugins }} \
+    {{ tmux_plugins }}/tpm/bin/install_plugins
+  become: true
+  become_user: "{{ target_user }}"
+  changed_when: false
+  ignore_errors: true
+# - name: Install tmux tpm plugins
+#   ansible.builtin.command: tmux run-shell "{{ tmux_plugins }}/tpm/scripts/install_plugins.sh"
+#   become: true
+#   become_user: "{{ target_user }}"
+#   changed_when: false

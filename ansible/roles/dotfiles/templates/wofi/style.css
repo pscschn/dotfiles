@@ -1,0 +1,74 @@
+@define-color bg-base {{ global_colorscheme.base.hex }};
+@define-color bg-mantle {{ global_colorscheme.mantle.hex }};
+@define-color bg-crust {{ global_colorscheme.crust.hex }};
+@define-color text {{ global_colorscheme.text.hex }};
+
+
+/** ********** Fonts ********** **/
+* {
+    font-family: "{{ global_fonts.default }}";
+    font-size: 13px;
+}
+
+#window {
+	background-color: @bg-base;
+	color: @text;
+	border: none;
+	border-radius: 0px;
+}
+
+#outer-box {
+	padding: 0px 0px 20px 0px;
+}
+
+#input {
+	background-color: @bg-crust;
+	border: none;
+	padding: 8px 12px;
+}
+
+#input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+#scroll {
+	margin-top: 20px;
+}
+
+#inner-box {
+}
+
+#img {
+	padding-right: 15px;
+	padding-left: 5px;
+}
+
+#text {
+	color: @text;
+}
+
+#text:selected {
+	color: @text;
+}
+
+#entry {
+	padding: 6px;
+}
+
+#entry:selected {
+    background-color: @bg-crust;
+		border: none;
+		outline: none;
+    color: inherit;
+}
+#unselected {
+}
+
+#selected {
+}
+
+#input, #entry:selected {
+	border-radius: 0px;
+}

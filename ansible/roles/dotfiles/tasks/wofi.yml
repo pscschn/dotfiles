@@ -1,0 +1,26 @@
+---
+- name: Set wofi facts
+  ansible.builtin.set_fact:
+    wofi_config: "/home/{{ target_user }}/.config/wofi"
+
+- name: Ensure wofi is installed
+  ansible.builtin.package:
+    name: "wofi"
+    state: present
+
+- name: Ensure wofi config directory exists
+  ansible.builtin.file:
+    path: "{{ wofi_config }}"
+    state: directory
+    mode: '0775'
+    owner: "{{ target_user }}"
+    recurse: true
+
+- name: Render wofi template files
+  ansible.builtin.template:
+    owner: "{{ target_user }}"
+    mode: u=rwx,g=rw,o=r
+    src: "{{ item.src }}"
+    dest: "{{ wofi_config }}/{{ item.path }}"
+  with_community.general.filetree: "{{ role_path }}/templates/wofi"
+  when: item.state == 'file'

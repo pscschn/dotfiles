@@ -1,0 +1,26 @@
+---
+- name: Include waybar vars
+  ansible.builtin.set_fact:
+    waybar_config: "/home/{{ target_user }}/.config/waybar"
+
+- name: Ensure waybar is installed
+  ansible.builtin.package:
+    name: "waybar"
+    state: present
+
+- name: Ensure waybar config directory exists
+  ansible.builtin.file:
+    path: "{{ waybar_config }}"
+    state: directory
+    mode: '0775'
+    owner: "{{ target_user }}"
+    recurse: true
+
+- name: Render waybar template files
+  ansible.builtin.template:
+    owner: "{{ target_user }}"
+    mode: u=rwx,g=rw,o=r
+    src: "{{ item.src }}"
+    dest: "{{ waybar_config }}/{{ item.path }}"
+  with_community.general.filetree: "{{ role_path }}/templates/waybar"
+  when: item.state == 'file'

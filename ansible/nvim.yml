@@ -1,0 +1,14 @@
+---
+
+- name: Deploy nvim
+  hosts: all
+  become: true
+  vars_files:
+    - ./vars/fonts.yml
+    - ./vars/colorscheme.yml
+  vars:
+    dotfile_tasks:
+      - fonts.yml
+      - nvim.yml
+  roles:
+    - dotfiles

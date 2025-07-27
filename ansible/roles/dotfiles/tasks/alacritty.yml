@@ -1,0 +1,21 @@
+---
+
+- name: Ensure that alacritty is installed
+  ansible.builtin.package:
+    name: alacritty
+    state: present
+
+- name: Ensure the alacritty config directory exists
+  ansible.builtin.file:
+    path: "/home/{{ target_user }}/.config/alacritty"
+    state: directory
+    mode: '0775'
+    owner: "{{ target_user }}"
+    recurse: true
+
+- name: Render the alacritty config file
+  ansible.builtin.template:
+    src: "{{ role_path }}/templates/alacritty/alacritty.toml.j2"
+    dest: "/home/{{ target_user }}/.config/alacritty/alacritty.toml"
+    owner: "{{ target_user }}"
+    mode: u=rw,g=rw,o=r

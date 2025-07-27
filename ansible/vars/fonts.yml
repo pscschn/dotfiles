@@ -1,0 +1,5 @@
+global_fonts:
+  terminal: "HurmitNerdFont"
+  top_bar: "FiraCodeNerdFont"
+  default: "FiraCodeNerdFont"
+  # default: "JetBrainsMonoNerdFont"

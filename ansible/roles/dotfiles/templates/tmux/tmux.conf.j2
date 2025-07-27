@@ -1,0 +1,51 @@
+unbind r
+bind r source-file ~/.tmux.conf
+
+set -g prefix C-s
+set -g mouse on
+
+# vim style key bindings
+setw -g mode-keys vi
+unbind [
+bind -n C-a copy-mode
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -selection clipboard -in"
+unbind -T copy-mode-vi Space
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+
+bind-key h select-pane -L
+bind-key j select-pane -D
+bind-key k select-pane -U
+bind-key l select-pane -R
+
+set-option -g status-position top
+set-option -g status-bg "{{ global_colorscheme.base.hex }}"
+
+# List of plugins
+set -g @plugin 'catppuccin/tmux'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+set -g default-terminal "tmux-256color"
+
+# Configure the catppuccin plugin
+set -g @catppuccin_flavor "mocha"
+set -g @catppuccin_window_status_style "rounded"
+
+# Load catppuccin
+run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
+# For TPM, instead use `run ~/.config/tmux/plugins/tmux/catppuccin.tmux`
+
+# Make the status line pretty and add some modules
+set -g status-right-length 100
+set -g status-left-length 100
+set -g status-left ""
+set -g status-right "#{E:@catppuccin_status_application}"
+#set -ag status-right "#{E:@catppuccin_status_session}"
+set -ag status-right "#{E:@catppuccin_status_uptime}"
+set -g @resurrect-save 'C-w'
+#set -g @resurrect-restore 't'
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
+
+

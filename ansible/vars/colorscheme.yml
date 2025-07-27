@@ -1,0 +1,85 @@
+global_colorscheme:
+  # catpuccin derived colors
+  rosewater:
+    hex: "#f4d3da"
+    rgb: "rgb(244, 211, 218)"
+  flamingo:
+    hex: "#f2cdcd"
+    rgb: "rgb(242, 205, 205)"
+  pink:
+    hex: "#f5c2e7"
+    rgb: "rgb(245, 194, 231)"
+  mauve:
+    hex: "#cba6f7"
+    rgb: "rgb(203, 166, 247)"
+  red:
+    hex: "#e5788f"
+    rgb: "rgb(229, 120, 143)"
+  maroon:
+    hex: "#eba0ac"
+    rgb: "rgb(235, 160, 172)"
+  peach:
+    hex: "#f2b18e"
+    rgb: "rgb(242, 177, 141)"
+  yellow:
+    hex: "#f0c674"
+    rgb: "rgb(240, 198, 116)"
+  green:
+    hex: "#a6e3a1"
+    rgb: "rgb(166, 227, 161)"
+  teal:
+    hex: "#15baba"
+    rgb: "rgb(21, 186, 186)"
+  sky:
+    hex: "#89dceb"
+    rgb: "rgb(137, 220, 235)"
+  sapphire:
+    hex: "#74c7ec"
+    rgb: "rgb(116, 199, 236)"
+  blue:
+    hex: "#89b4fa"
+    rgb: "rgb(137, 180, 250)"
+  lavender:
+    hex: "#b4befe"
+    rgb: "rgb(180, 190, 254)"
+  text:
+    hex: "#cdd6f4"
+    rgb: "rgb(205, 214, 244)"
+  subtext1:
+    hex: "#bac2de"
+    rgb: "rgb(186, 194, 222)"
+  subtext0:
+    hex: "#a6adc8"
+    rgb: "rgb(166, 173, 200)"
+  overlay2:
+    hex: "#9399b2"
+    rgb: "rgb(147, 153, 178)"
+  overlay1:
+    hex: "#7f849c"
+    rgb: "rgb(127, 132, 156)"
+  overlay0:
+    hex: "#6c7086"
+    rgb: "rgb(108, 112, 134)"
+  surface2:
+    hex: "#585b70"
+    rgb: "rgb(88, 91, 112)"
+  surface1:
+    hex: "#45475a"
+    rgb: "rgb(69, 71, 90)"
+  surface0:
+    hex: "#313244"
+    rgb: "rgb(49, 50, 68)"
+  base:
+    hex: "#090A0B"
+    rgb: "rgb(9, 10, 11)"
+  mantle:
+    hex: "#121314"
+    rgb: "rgb(18, 19, 20)"
+  crust:
+    hex: "#161718"
+    rgb: "rgb(22, 23, 24)"
+  # other colors
+  darkblue:
+    hex: "#282e4b"
+  purplegray:
+    hex: "#7f87b3"

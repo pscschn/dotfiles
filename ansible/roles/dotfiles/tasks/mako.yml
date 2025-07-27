@@ -1,0 +1,29 @@
+---
+
+- name: Include mako specific vars
+  ansible.builtin.set_fact:
+    mako_config: "/home/{{ target_user }}/.config/mako"
+
+- name: Ensure mako is installed
+  ansible.builtin.package:
+    name:
+      - "mako"
+      - "pango"
+      - "cairo"
+      - "libnotify"
+    state: present
+
+- name: Ensure mako config directory exists
+  ansible.builtin.file:
+    path: "{{ mako_config }}"
+    state: directory
+    mode: '0775'
+    owner: "{{ target_user }}"
+    recurse: true
+
+- name: Render mako template files
+  ansible.builtin.template:
+    owner: "{{ target_user }}"
+    mode: u=rwx,g=rw,o=r
+    src: "{{ role_path }}/templates/mako/config"
+    dest: "{{ mako_config }}/config"

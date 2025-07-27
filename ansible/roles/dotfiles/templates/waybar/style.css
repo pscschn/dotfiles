@@ -1,0 +1,112 @@
+@define-color text  {{ global_colorscheme.text.hex }};
+@define-color base {{ global_colorscheme.base.hex }};
+@define-color mantle {{ global_colorscheme.mantle.hex }};
+@define-color crust {{ global_colorscheme.crust.hex }};
+@define-color purple {{ global_colorscheme.purplegray.hex }};
+@define-color mauve {{ global_colorscheme.mauve.hex }};
+@define-color blue {{ global_colorscheme.blue.hex }};
+
+* {
+    border: none;
+    font-size: 13px;
+    letter-spacing: 0px;
+    font-family: "{{ global_fonts.top_bar }}";
+    min-height: 30px;
+}
+
+window#waybar {
+  background: transparent;
+  margin-left: 20px;
+}
+
+tooltip {
+  border-radius: 15px;
+  background: @base;
+  color: @text;
+}
+
+tooltip label{
+  color: @active;
+}
+
+.modules-right {
+  border-radius: 12px;
+  padding: 0px 0px 0px 10px;
+  margin: 5px 20px 0px 0px;
+  background: @base;
+  color: @text;
+}
+
+.modules-center {
+  padding: 0 10px;
+  margin: 5px 0px 0px 0px;
+  border-radius: 12px;
+  background: @base;
+  color: @text;
+}
+
+.modules-left {
+  /*padding: 0px 10px 0px 10px;
+  border-radius: 12px;
+  margin: 5px 0px 0px 20px;
+  background: @base;
+  color: @text;*/
+}
+
+#pulseaudio,
+#network,
+#tray,
+#clock {
+  margin: 0 5px;
+  padding: 0 5px;
+}
+
+#custom-media {
+  margin-left: 5px;
+  padding: 0px;
+}
+
+#workspaces button, #workspaces button * {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background: none;
+  font-weight: normal;
+  padding: 0px 5px 0px 4px;
+}
+
+#workspaces button:focus,
+#workspaces button:hover {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  text-shadow:none;
+  transition:.1s;
+  border-radius:0px;
+  font-weight: normal;
+  color: @mauve;
+}
+
+#workspaces button.active {
+  border-radius: 0px;
+  color: @blue;
+  transition: 0;
+}
+
+#workspaces button {
+  color: @text;
+}
+
+#workspaces button.active:hover {
+  background: @base;
+}
+
+#workspaces button.active:hover *{
+  color: @blue;
+}
+
+#workspaces button span,
+#workspaces button label {
+    font-weight: normal;
+    padding-right: 4px;
+}

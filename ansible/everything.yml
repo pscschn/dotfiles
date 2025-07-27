@@ -1,0 +1,20 @@
+---
+
+- name: Deploy everything
+  hosts: all
+  become: true
+  vars_files:
+    - ./vars/fonts.yml
+    - ./vars/colorscheme.yml
+  vars:
+    dotfile_tasks:
+      - fonts.yml
+      - hyprland.yml
+      - alacritty.yml
+      - waybar.yml
+      - wofi.yml
+      - mako.yml
+      - nvim.yml
+      - tmux.yml
+  roles:
+    - dotfiles

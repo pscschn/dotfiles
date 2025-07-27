@@ -1,0 +1,86 @@
+{
+  "layer" : "top",
+  "position" : "top",
+  "modules-left" : [
+  ],
+  "modules-test": [
+  ],
+  "modules-center" : [
+    "hyprland/workspaces"
+  ],
+  "modules-right" : [
+    "custom/media",
+    "pulseaudio",
+    "clock"
+  ],
+  "reload_style_on_change" : true,
+  "clock" : {
+    "format" : " {:%a %b %d %I:%M %p} ",
+    "interval" : 1
+  },
+  "hyprland/workspaces" : {
+    "format" : "{icon}",
+     "on-scroll-up": "hyprctl dispatch workspace e+1",
+     "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "format-icons" : {
+      "1" : "",
+      "2" : "",
+      "3" : "",
+      "4" : "",
+      "5" : "",
+      "default" : ""
+    },
+    "persistent-workspaces" : {
+      "*" : [
+        3,
+        2,
+        1,
+        4,
+        5
+      ]
+    }
+  },
+  "idle_inhibitor" : {
+    "format" : "<span font='12'>{icon}</span>",
+    "format-icons" : {
+      "activated" : "",
+      "deactivated" : ""
+    }
+  },
+  "network" : {
+    "format-wifi" : " {essid} ({signalStrength}%)",
+    "format-ethernet" : "󱎔",
+    "format-disconnected" : " ",
+    "tooltip-format" : "{ipaddr}",
+    "tooltip-format-wifi" : "{essid} ({signalStrength}%)  | {ipaddr}",
+    "tooltip-format-ethernet" : "{ifname} | {ipaddr}",
+    "on-click" : "networkmanager_dmenu"
+  },
+  "custom/media" : {
+    "format" : "{}",
+    "interval" : 5,
+    "max-length": 20,
+    "exec" : "$HOME/.config/waybar/get_media.sh"
+  },
+  "pulseaudio" : {
+    "format" : "{icon} {volume}%",
+    "format-bluetooth" : "{icon} {volume}%",
+    "format-muted" : "",
+    "format-icons" : {
+      "headphone" : "",
+      "hands-free" : "",
+      "headset" : "",
+      "phone" : "",
+      "portable" : "",
+      "car" : "",
+      "default" : [
+        ""
+      ]
+    },
+    "scroll-step" : 1
+  },
+  "tray" : {
+    "icon-size" : 14,
+    "spacing" : 10
+  }
+}

@@ -1,0 +1,13 @@
+---
+- name: Deploy wofi
+  hosts: all
+  become: true
+  vars_files:
+    - ./vars/fonts.yml
+    - ./vars/colorscheme.yml
+  vars:
+    dotfile_tasks:
+      - fonts.yml
+      - wofi.yml
+  roles:
+    - dotfiles

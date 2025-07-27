@@ -1,0 +1,28 @@
+---
+
+- name: Ensure nvim is installed
+  ansible.builtin.package:
+    name:
+      - "nvim"
+      - "ripgrep"
+      - "git"
+      - "ncurses"
+    state: present
+
+- name: Ensure nvim config directory exists
+  ansible.builtin.file:
+    path: "/home/{{ target_user }}/.config/nvim"
+    state: directory
+    mode: '0775'
+    owner: "{{ target_user }}"
+    recurse: true
+
+- name: Clone nvim config
+  ansible.builtin.git:
+    repo: "https://github.com/pscschn/nvim-385"
+    dest: "/home/{{ target_user }}/.config/nvim"
+    version: master
+    force: true
+    clone: true
+    update: true
+

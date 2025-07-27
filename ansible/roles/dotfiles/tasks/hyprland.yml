@@ -1,0 +1,40 @@
+---
+- name: Set hyprland task facts
+  ansible.builtin.set_fact:
+    hypr_config: "/home/{{ target_user }}/.config/hypr"
+    hypr_template: "{{ role_path }}/templates/hypr"
+
+
+- name: Ensure hyprland is installed
+  ansible.builtin.package:
+    name:
+      - "hyprland"
+    state: present
+
+- name: Ensure hyprpaper is installed
+  ansible.builtin.package:
+    name: hyprpaper
+    state: present
+
+- name: Ensure hyprland config directory exists
+  ansible.builtin.file:
+    path: "{{ hypr_config }}"
+    state: directory
+    mode: '0775'
+    owner: "{{ target_user }}"
+    recurse: true
+
+- name: Render hyprland configs
+  ansible.builtin.template:
+    owner: "{{ target_user }}"
+    mode: u=rwx,g=rw,o=r
+    src: "{{ item.src }}"
+    dest: "{{ hypr_config }}/{{ item.path }}"
+  with_community.general.filetree: "{{ hypr_template }}"
+  when: item.path is match(".*\\.(conf|ini|json|txt|sh|py|tmpl)$")
+
+- name: Copy the hyprpaper wallpaper
+  ansible.builtin.copy:
+    src: "{{ hypr_template }}/wallpaper.jpg"
+    dest: "{{ hypr_config }}/wallpaper.jpg"
+    mode: '0644'
