@@ -6,12 +6,18 @@
       - "unzip"
     state: present
 
+- name: Check if FiraCode font is already installed
+  ansible.builtin.stat:
+    path: /usr/local/share/fonts/FiraCode/FiraCodeNerdFont-Medium.ttf
+  register: fira_font
+
 - name: Ensure FiraCode font directory exists
   ansible.builtin.file:
     path: /usr/local/share/fonts/FiraCode
     state: directory
     mode: "0755"
     owner: "{{ target_user }}"
+  when: not fira_font.stat.exists
   become: true
 
 - name: Download FiraCode Nerd Font
@@ -20,6 +26,7 @@
       https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip
   args:
     creates: /tmp/FiraCode.zip
+  when: not fira_font.stat.exists
   become: true
 
 - name: Unzip FiraCode Nerd Font to font directory
@@ -28,9 +35,14 @@
     dest: /usr/local/share/fonts/FiraCode
     remote_src: true
     owner: "{{ target_user }}"
-    group: "{{ target_user }}"
     mode: "0644"
+  when: not fira_font.stat.exists
   become: true
+
+- name: Check if Hurmit font is already installed
+  ansible.builtin.stat:
+    path: /usr/local/share/fonts/Hermit/HurmitNerdFont-Bold.otf
+  register: hermit_font
 
 - name: Ensure Hurmit font directory exists
   ansible.builtin.file:
@@ -38,6 +50,7 @@
     state: directory
     mode: "0755"
     owner: "{{ target_user }}"
+  when: not hermit_font.stat.exists
   become: true
 
 - name: Download Hermit Nerd Font
@@ -46,6 +59,7 @@
       https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Hermit.zip
   args:
     creates: /tmp/Hermit.zip
+  when: not hermit_font.stat.exists
   become: true
 
 - name: Unzip Hermit Nerd Font
@@ -54,6 +68,6 @@
     dest: /usr/local/share/fonts/Hermit
     remote_src: true
     owner: "{{ target_user }}"
-    group: "{{ target_user }}"
     mode: "0644"
+  when: not hermit_font.stat.exists
   become: true

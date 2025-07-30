@@ -15,7 +15,7 @@
   ],
   "reload_style_on_change" : true,
   "clock" : {
-    "format" : " {:%a %b %d %I:%M %p} ",
+    "format" : " {:%a %d %I:%M %p} ",
     "interval" : 1
   },
   "hyprland/workspaces" : {
@@ -40,22 +40,6 @@
       ]
     }
   },
-  "idle_inhibitor" : {
-    "format" : "<span font='12'>{icon}</span>",
-    "format-icons" : {
-      "activated" : "",
-      "deactivated" : ""
-    }
-  },
-  "network" : {
-    "format-wifi" : " {essid} ({signalStrength}%)",
-    "format-ethernet" : "󱎔",
-    "format-disconnected" : " ",
-    "tooltip-format" : "{ipaddr}",
-    "tooltip-format-wifi" : "{essid} ({signalStrength}%)  | {ipaddr}",
-    "tooltip-format-ethernet" : "{ifname} | {ipaddr}",
-    "on-click" : "networkmanager_dmenu"
-  },
   "custom/media" : {
     "format" : "{}",
     "interval" : 5,
@@ -78,9 +62,5 @@
       ]
     },
     "scroll-step" : 1
-  },
-  "tray" : {
-    "icon-size" : 14,
-    "spacing" : 10
   }
 }

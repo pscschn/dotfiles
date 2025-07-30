@@ -6,11 +6,12 @@
 @define-color mauve {{ global_colorscheme.mauve.hex }};
 @define-color blue {{ global_colorscheme.blue.hex }};
 
+
 * {
     border: none;
     font-size: 13px;
     letter-spacing: 0px;
-    font-family: "{{ global_fonts.top_bar }}";
+    font-family: "FiraCodeNerdFont";
     min-height: 30px;
 }
 
@@ -19,18 +20,8 @@ window#waybar {
   margin-left: 20px;
 }
 
-tooltip {
-  border-radius: 15px;
-  background: @base;
-  color: @text;
-}
-
-tooltip label{
-  color: @active;
-}
-
 .modules-right {
-  border-radius: 12px;
+  border-radius: 7.5px;
   padding: 0px 0px 0px 10px;
   margin: 5px 20px 0px 0px;
   background: @base;
@@ -40,7 +31,7 @@ tooltip label{
 .modules-center {
   padding: 0 10px;
   margin: 5px 0px 0px 0px;
-  border-radius: 12px;
+  border-radius: 7.5px;
   background: @base;
   color: @text;
 }
@@ -54,8 +45,6 @@ tooltip label{
 }
 
 #pulseaudio,
-#network,
-#tray,
 #clock {
   margin: 0 5px;
   padding: 0 5px;

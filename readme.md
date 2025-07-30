@@ -9,7 +9,7 @@ This is my personal **dotfiles repository**, built for fast, reproducible setups
 
 ---
 
-## 🔧 Stack Overview
+## 🔧 Overview
 
 - **Hyprland** as Wayland window manager
 - **Neovim** with **Tmux** for terminal-based workflows
@@ -18,28 +18,13 @@ This is my personal **dotfiles repository**, built for fast, reproducible setups
 
 ## 🎹 Keymaps
 
-Here are some relevant keymaps:
-
-- **Mod + Return** — opens the terminal
-- **Mod + Q** — closes the current window
-- **Mod + i** — opens the application launcher
-- **Caps** - remaped to **Esc**
-
-Here’s the corresponding config snippet from the config:
-
-```ini
-bind = $mainMod, RETURN, exec, $terminal
-bind = $mainMod, Q, killactive
-bind = $mainMod, i, exec, $menu
-```
-
 > Note: see all keymaps in the [hyprland.conf](./ansible/roles/dotfiles/templates/hypr/hyprland.conf)
 
 ## 🚀 Deployment
 
 ### Quick Vagrant Setup
 
-To spin up a test VM with everything prepped:
+To roll out a test VM:
 
 ```bash
 vagrant up
@@ -59,4 +44,4 @@ ansible-playbook \
   ansible/everything.yml
 ```
 
-Note: Might need to generate a local SSH key.
+> Note: Might need to generate a local SSH key.

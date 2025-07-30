@@ -8,5 +8,4 @@
   ansible.builtin.file:
     path: "/home/{{ target_user }}/.config"
     owner: "{{ target_user }}"
-    group: "{{ target_user }}"
     recurse: true
