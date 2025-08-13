@@ -92,18 +92,42 @@ global_colorscheme:
     hex: "#313244"
     rgb: "rgb(49, 50, 68)"
     rgba: "rgba(313244ee)"
+  # base:
+    # hex: "#090A0B"
+    # rgb: "rgb(9, 10, 11)"
+    # rgba: "rgba(090a0bee)"
   base:
-    hex: "#090A0B"
-    rgb: "rgb(9, 10, 11)"
-    rgba: "rgba(090a0bee)"
+    hex: "#121212"
+    rgb: "rgb(18, 18, 18)"
+    rgba: "rgba(121212ee)"
   mantle:
-    hex: "#121314"
-    rgb: "rgb(18, 19, 20)"
-    rgba: "rgba(121314ee)"
+    hex: "#1B1B1B"
+    rgb: "rgb(27, 27, 27)"
+    rgba: "rgba(1b1b1bee)"
   crust:
-    hex: "#161718"
-    rgb: "rgb(22, 23, 24)"
-    rgba: "rgba(161718ee)"
+    hex: "#1F1F1F"
+    rgb: "rgb(31, 31, 31)"
+    rgba: "rgba(1f1f1fee)"
+  # base:
+    # hex: "#161617"
+    # rgb: "rgb(22, 22, 23)"
+    # rgba: "rgba(161617ee)"
+  # mantle:
+    # hex: "#121314"
+    # rgb: "rgb(18, 19, 20)"
+    # rgba: "rgba(121314ee)"
+  # crust:
+    # hex: "#161718"
+    # rgb: "rgb(22, 23, 24)"
+    # rgba: "rgba(161718ee)"
+  # mantle:
+    # hex: "#1F1F20"
+    # rgb: "rgb(31, 31, 32)"
+    # rgba: "rgba(1f1f20ee)"
+  # crust:
+    # hex: "#232324"
+    # rgb: "rgb(35, 35, 36)"
+    # rgba: "rgba(232324ee)"
   # other colors
   darkblue:
     hex: "#282e4b"

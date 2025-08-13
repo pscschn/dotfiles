@@ -17,6 +17,9 @@ bind-key j select-pane -D
 bind-key k select-pane -U
 bind-key l select-pane -R
 
+set -g pane-active-border-style "fg={{ global_colorscheme.surface0.hex }}"
+set -g pane-border-style "fg={{ global_colorscheme.base.hex }}"
+
 set -g @tmux-dotbar-justify "left"
 set -g @tmux-dotbar-left "false"
 set -g @tmux-dotbar-right "true"
