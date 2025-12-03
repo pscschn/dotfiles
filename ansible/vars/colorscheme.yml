@@ -1,85 +1,120 @@
-global_colorscheme:
-  # catpuccin derived colors
-  rosewater:
-    hex: "#f4d3da"
-    rgb: "rgb(244, 211, 218)"
-    rgba: "rgba(f4d3daee)"
+# catpuccin derived colors
+oldworld:
+  text:
+    hex: "#c9c7cd"
+    rgb: "rgb(201, 199, 205)"
+    rgba: "rgba(c9c7cdee)"
+  base:
+    hex: "#161617"
+    rgb: "rgb(22, 22, 23)"
+    rgba: "rgba(161617ee)"
+  mantle:
+    hex: "#1b1b1c"
+    rgb: "rgb(27, 27, 28)"
+    rgba: "rgba(1b1b1cee)"
+  border:
+    hex: "#27272a"
+    rgb: "rgb(39, 39, 42)"
+    rgba: "rgba(27272aee)"
+  subtext0:
+    hex: "#a09ca4"
+    rgb: "rgb(160, 156, 164)"
+    rgba: "rgba(a09ca4ee)"
+  subtext1:
+    hex: "#b4b1ba"
+    rgb: "rgb(180, 177, 186)"
+    rgba: "rgba(b4b1baee)"
+  surface2:
+    hex: "#8b8693"
+    rgb: "rgb(139, 134, 147)"
+    rgba: "rgba(8b8693ee)"
+  surface1:
+    hex: "#6c6874"
+    rgb: "rgb(108, 104, 116)"
+    rgba: "rgba(6c6874ee)"
+  surface0:
+    hex: "#444448"
+    rgb: "rgb(68, 68, 72)"
+    rgba: "rgba(444448ee)"
+  red:
+    hex: "#ea83a5"
+    rgb: "rgb(234, 131, 165)"
+    rgba: "rgba(ea83a5ee)"
+  green:
+    hex: "#90b99f"
+    rgb: "rgb(144, 185, 159)"
+    rgba: "rgba(90b99fee)"
   flamingo:
     hex: "#f2cdcd"
     rgb: "rgb(242, 205, 205)"
     rgba: "rgba(f2cdcdee)"
-  pink:
-    hex: "#f5c2e7"
-    rgb: "rgb(245, 194, 231)"
-    rgba: "rgba(f5c2e7ee)"
-  mauve:
-    hex: "#cba6f7"
-    rgb: "rgb(203, 166, 247)"
-    rgba: "rgba(cba6f7ee)"
-  red:
-    hex: "#e5788f"
-    rgb: "rgb(229, 120, 143)"
-    rgba: "rgba(e5788fee)"
-  maroon:
-    hex: "#eba0ac"
-    rgb: "rgb(235, 160, 172)"
-    rgba: "rgba(eba0acee)"
-  peach:
-    hex: "#f2b18e"
-    rgb: "rgb(242, 177, 141)"
-    rgba: "rgba(f2b18eee)"
   yellow:
-    hex: "#f0c674"
-    rgb: "rgb(240, 198, 116)"
-    rgba: "rgba(f0c674ee)"
-  green:
-    hex: "#a6e3a1"
-    rgb: "rgb(166, 227, 161)"
-    rgba: "rgba(a6e3a1ee)"
-  teal:
-    hex: "#15baba"
-    rgb: "rgb(21, 186, 186)"
-    rgba: "rgba(15babaaa)"
-  sky:
-    hex: "#89dceb"
-    rgb: "rgb(137, 220, 235)"
-    rgba: "rgba(89dcebee)"
-  sapphire:
-    hex: "#74c7ec"
-    rgb: "rgb(116, 199, 236)"
-    rgba: "rgba(74c7ecee)"
+    hex: "#e6b99d"
+    rgb: "rgb(230, 185, 157)"
+    rgba: "rgba(e6b99dee)"
+  purple:
+    hex: "#aca1cf"
+    rgb: "rgb(172, 161, 207)"
+    rgba: "rgba(aca1cfee)"
+  pink:
+    hex: "#e29eca"
+    rgb: "rgb(226, 158, 202)"
+    rgba: "rgba(e29ecaee)"
+  orange:
+    hex: "#f5a191"
+    rgb: "rgb(245, 161, 145)"
+    rgba: "rgba(f5a191ee)"
   blue:
-    hex: "#89b4fa"
-    rgb: "rgb(137, 180, 250)"
-    rgba: "rgba(89b4faee)"
+    hex: "#92a2d5"
+    rgb: "rgb(146, 162, 213)"
+    rgba: "rgba(92a2d5ee)"
   lavender:
     hex: "#b4befe"
     rgb: "rgb(180, 190, 254)"
     rgba: "rgba(b4befeee)"
+  cyan:
+    hex: "#85b5ba"
+    rgb: "rgb(133, 181, 186)"
+    rgba: "rgba(85b5baee)"
+  overlay2:
+    hex: "#313134"
+    rgb: "rgb(49, 49, 52)"
+    rgba: "rgba(313134ee)"
+  overlay1:
+    hex: "#3b3b3e"
+    rgb: "rgb(59, 59, 62)"
+    rgba: "rgba(3b3b3eee)"
+  overlay0:
+    hex: "#444448"
+    rgb: "rgb(68, 68, 72)"
+    rgba: "rgba(444448ee)"
+
+# catpuccin derived colors
+catpuccin:
   text:
     hex: "#cdd6f4"
     rgb: "rgb(205, 214, 244)"
     rgba: "rgba(cdd6f4ee)"
-  subtext1:
-    hex: "#bac2de"
-    rgb: "rgb(186, 194, 222)"
-    rgba: "rgba(bac2deee)"
+  base:
+    hex: "#121212"
+    rgb: "rgb(18, 18, 18)"
+    rgba: "rgba(121212ee)"
+  mantle:
+    hex: "#1F1F1F"
+    rgb: "rgb(31, 31, 31)"
+    rgba: "rgba(1f1f1fee)"
+  border:
+    hex: "#1B1B1B"
+    rgb: "rgb(27, 27, 27)"
+    rgba: "rgba(1b1b1bee)"
   subtext0:
     hex: "#a6adc8"
     rgb: "rgb(166, 173, 200)"
     rgba: "rgba(a6adc8ee)"
-  overlay2:
-    hex: "#9399b2"
-    rgb: "rgb(147, 153, 178)"
-    rgba: "rgba(9399b2ee)"
-  overlay1:
-    hex: "#7f849c"
-    rgb: "rgb(127, 132, 156)"
-    rgba: "rgba(7f849cee)"
-  overlay0:
-    hex: "#6c7086"
-    rgb: "rgb(108, 112, 134)"
-    rgba: "rgba(6c7086ee)"
+  subtext1:
+    hex: "#bac2de"
+    rgb: "rgb(186, 194, 222)"
+    rgba: "rgba(bac2deee)"
   surface2:
     hex: "#585b70"
     rgb: "rgb(88, 91, 112)"
@@ -92,46 +127,58 @@ global_colorscheme:
     hex: "#313244"
     rgb: "rgb(49, 50, 68)"
     rgba: "rgba(313244ee)"
-  # base:
-    # hex: "#090A0B"
-    # rgb: "rgb(9, 10, 11)"
-    # rgba: "rgba(090a0bee)"
-  base:
-    hex: "#121212"
-    rgb: "rgb(18, 18, 18)"
-    rgba: "rgba(121212ee)"
-  mantle:
-    hex: "#1B1B1B"
-    rgb: "rgb(27, 27, 27)"
-    rgba: "rgba(1b1b1bee)"
-  crust:
-    hex: "#1F1F1F"
-    rgb: "rgb(31, 31, 31)"
-    rgba: "rgba(1f1f1fee)"
-  # base:
-    # hex: "#161617"
-    # rgb: "rgb(22, 22, 23)"
-    # rgba: "rgba(161617ee)"
-  # mantle:
-    # hex: "#121314"
-    # rgb: "rgb(18, 19, 20)"
-    # rgba: "rgba(121314ee)"
-  # crust:
-    # hex: "#161718"
-    # rgb: "rgb(22, 23, 24)"
-    # rgba: "rgba(161718ee)"
-  # mantle:
-    # hex: "#1F1F20"
-    # rgb: "rgb(31, 31, 32)"
-    # rgba: "rgba(1f1f20ee)"
-  # crust:
-    # hex: "#232324"
-    # rgb: "rgb(35, 35, 36)"
-    # rgba: "rgba(232324ee)"
-  # other colors
-  darkblue:
-    hex: "#282e4b"
-    rgba: "rgba(282e4bee)"
-  purplegray:
-    hex: "#7f87b3"
-    rgba: "rgba(7f87b3ee)"
+  red:
+    hex: "#e5788f"
+    rgb: "rgb(229, 120, 143)"
+    rgba: "rgba(e5788fee)"
+  green:
+    hex: "#a6e3a1"
+    rgb: "rgb(166, 227, 161)"
+    rgba: "rgba(a6e3a1ee)"
+  flamingo:
+    hex: "#f2cdcd"
+    rgb: "rgb(242, 205, 205)"
+    rgba: "rgba(f2cdcdee)"
+  yellow:
+    hex: "#f0c674"
+    rgb: "rgb(240, 198, 116)"
+    rgba: "rgba(f0c674ee)"
+  purple:
+    hex: "#cba6f7"
+    rgb: "rgb(203, 166, 247)"
+    rgba: "rgba(cba6f7ee)"
+  pink:
+    hex: "#f5c2e7"
+    rgb: "rgb(245, 194, 231)"
+    rgba: "rgba(f5c2e7ee)"
+  orange:
+    hex: "#f2b18e"
+    rgb: "rgb(242, 177, 141)"
+    rgba: "rgba(f2b18eee)"
+  blue:
+    hex: "#89b4fa"
+    rgb: "rgb(137, 180, 250)"
+    rgba: "rgba(89b4faee)"
+  lavender:
+    hex: "#b4befe"
+    rgb: "rgb(180, 190, 254)"
+    rgba: "rgba(b4befeee)"
+  cyan:
+    hex: "#85b5ba"
+    rgb: "rgb(133, 181, 186)"
+    rgba: "rgba(85b5baee)"
+  overlay2:
+    hex: "#9399b2"
+    rgb: "rgb(147, 153, 178)"
+    rgba: "rgba(9399b2ee)"
+  overlay1:
+    hex: "#7f849c"
+    rgb: "rgb(127, 132, 156)"
+    rgba: "rgba(7f849cee)"
+  overlay0:
+    hex: "#6c7086"
+    rgb: "rgb(108, 112, 134)"
+    rgba: "rgba(6c7086ee)"
+
+
+global_colorscheme: "{{ oldworld }}"

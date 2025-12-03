@@ -1,7 +1,7 @@
 ---
 all:
   hosts:
-    dynamic:
-      ansible_host: "{{ dynamic_host | default('localhost') }}"
-      ansible_port: "{{ dynamic_port | default('22') }}"
-      ansible_user: "{{ dynamic_user | default('root') }}"
+    local:
+      ansible_host: "localhost"
+      ansible_port: "22"
+      ansible_user: "root"

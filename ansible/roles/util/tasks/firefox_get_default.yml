@@ -1,0 +1,26 @@
+- name: Read Firefox installs.ini
+  slurp:
+    src: "{{ ansible_env.HOME }}/.mozilla/firefox/installs.ini"
+  register: installs_ini_raw
+  ignore_errors: true
+
+- name: Fail if installs.ini not found
+  fail:
+    msg: "Firefox installs.ini not found — Firefox may not be installed or run yet."
+  when: installs_ini_raw.failed is defined and installs_ini_raw.failed
+
+- name: Decode installs.ini content
+  set_fact:
+    installs_ini: "{{ installs_ini_raw['content'] | b64decode }}"
+
+- name: Extract default profile directory name
+  set_fact:
+    firefox_default_profile_relpath: "{{ installs_ini | regex_search('(?<=Default=)(.*)', '\\1') | first | default('') }}"
+
+- name: Set full path for default Firefox profile
+  set_fact:
+    firefox_default_profile_path: "{{ ansible_env.HOME }}/.mozilla/firefox/{{ firefox_default_profile_relpath }}"
+
+- name: Display the detected default Firefox profile directory
+  debug:
+    msg: "Default Firefox profile directory: {{ firefox_default_profile_path }}"

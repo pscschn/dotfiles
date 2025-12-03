@@ -5,7 +5,8 @@ Vagrant.configure("2") do |config|
       v.memory = 4076
       v.cpus = 2
 
-    v.customize ["modifyvm", :id, "--graphicscontroller", "VBoxVGA"]
+    #v.customize ["modifyvm", :id, "--graphicscontroller", "VBoxVGA"]
+    v.customize ["modifyvm", :id, "--graphicscontroller", "VBoxSVGA"]
     #v.customize ["modifyvm", :id, "--accelerate3d", "on"]
     #v.customize ["modifyvm", :id, "--vram", "128"]
   end

@@ -1,3 +1,4 @@
 .vagrant
 .ansible
 *.dxvk-cache
+.nvim

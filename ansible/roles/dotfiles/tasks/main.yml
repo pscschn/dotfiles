@@ -1,8 +1,10 @@
 ---
 
 - name: Include specified dotfile tasks
-  ansible.builtin.include_tasks: "{{ item }}"
+  ansible.builtin.include_tasks: "{{ dotfile_task }}"
   loop: "{{ dotfile_tasks }}"
+  loop_control:
+    loop_var: dotfile_task
 
 - name: Ensure target_user owns their .config directory
   ansible.builtin.file:

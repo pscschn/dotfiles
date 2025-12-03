@@ -1,0 +1,9 @@
+---
+
+- name: Deploy firefox
+  hosts: all
+  vars:
+    dotfile_tasks:
+      - firefox.yml
+  roles:
+    - dotfiles

@@ -5,11 +5,13 @@
       - "curl"
       - "unzip"
     state: present
+  become: true
 
 - name: Check if FiraCode font is already installed
   ansible.builtin.stat:
     path: /usr/local/share/fonts/FiraCode/FiraCodeNerdFont-Medium.ttf
   register: fira_font
+  become: true
 
 - name: Ensure FiraCode font directory exists
   ansible.builtin.file:
@@ -43,6 +45,7 @@
   ansible.builtin.stat:
     path: /usr/local/share/fonts/Hermit/HurmitNerdFont-Bold.otf
   register: hermit_font
+  become: true
 
 - name: Ensure Hurmit font directory exists
   ansible.builtin.file:

@@ -2,7 +2,6 @@
 
 - name: Deploy everything
   hosts: all
-  become: true
   vars_files:
     - ./vars/fonts.yml
     - ./vars/colorscheme.yml
@@ -16,5 +15,7 @@
       - mako.yml
       - nvim.yml
       - tmux.yml
+      - firefox.yml
+      - fastfetch.yml
   roles:
     - dotfiles

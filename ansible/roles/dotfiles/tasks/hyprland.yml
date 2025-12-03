@@ -4,17 +4,14 @@
     hypr_config: "/home/{{ target_user }}/.config/hypr"
     hypr_template: "{{ role_path }}/templates/hypr"
 
-
 - name: Ensure hyprland is installed
   ansible.builtin.package:
     name:
       - "hyprland"
+      - "hyprshot"
+      - "hyprpaper"
     state: present
-
-- name: Ensure hyprpaper is installed
-  ansible.builtin.package:
-    name: hyprpaper
-    state: present
+  become: true
 
 - name: Ensure hyprland config directory exists
   ansible.builtin.file:

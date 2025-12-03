@@ -8,6 +8,7 @@
       - "git"
       - "ncurses"
     state: present
+  become: true
 
 - name: Ensure nvim config directory exists
   ansible.builtin.file:
@@ -25,4 +26,3 @@
     force: true
     clone: true
     update: true
-

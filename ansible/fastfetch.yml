@@ -1,0 +1,9 @@
+---
+
+- name: Deploy fastfetch
+  hosts: all
+  vars:
+    dotfile_tasks:
+      - fastfetch.yml
+  roles:
+    - dotfiles

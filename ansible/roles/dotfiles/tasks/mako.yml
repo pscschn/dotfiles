@@ -12,6 +12,7 @@
       - "cairo"
       - "libnotify"
     state: present
+  become: true
 
 - name: Ensure mako config directory exists
   ansible.builtin.file:

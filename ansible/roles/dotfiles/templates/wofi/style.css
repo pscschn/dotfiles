@@ -1,6 +1,6 @@
 @define-color bg-base {{ global_colorscheme.base.hex }};
 @define-color bg-mantle {{ global_colorscheme.mantle.hex }};
-@define-color bg-crust {{ global_colorscheme.crust.hex }};
+@define-color bg-border {{ global_colorscheme.border.hex }};
 @define-color text {{ global_colorscheme.text.hex }};
 
 
@@ -22,7 +22,7 @@
 }
 
 #input {
-	background-color: @bg-crust;
+	background-color: @bg-border;
 	border: none;
 	padding: 8px 12px;
 }
@@ -58,7 +58,7 @@
 }
 
 #entry:selected {
-    background-color: @bg-crust;
+    background-color: @bg-border;
 		border: none;
 		outline: none;
     color: inherit;

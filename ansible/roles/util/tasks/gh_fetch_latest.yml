@@ -1,0 +1,46 @@
+---
+# This task fetches the actual tag from the latest tag of a gitub project
+# It needs a context object containing metadata about how this fetch should behave
+# Name: ghfl_arg
+# Type: dict
+# Keys:
+#   - repo: "{{ owner }}/{{ name }}" (string)
+#   - url_template: artifact url containing $tag to be replaced (string)
+#   - dest: download destination (string)
+#   - file: download file name (string)
+
+- name: Get latest release location
+  uri:
+    url: "https://github.com/{{ ghfl_arg.repo }}/releases/latest"
+    method: HEAD
+    return_content: false
+  register: latest_release
+
+- name: Extract tag number from Location header
+  ansible.builtin.set_fact:
+    latest_tag: "{{ latest_release.url.split('/')[-1] | regex_replace('^[vV]', '') }}"
+
+- name: Debug latest tag
+  ansible.builtin.debug:
+    msg: "Latest tag is {{ latest_tag }}"
+
+- name: Resolve artifact URL and set dynamic fact
+  ansible.builtin.set_fact:
+    download_url: "{{ ghfl_arg.url_template | regex_replace('\\$tag', latest_tag) }}"
+    # "{{ ghfl_arg.url_var_name }}": "{{ ghfl_arg.url_template | regex_replace('\\$tag', latest_tag) }}"
+
+- name: Debug download url
+  ansible.builtin.debug:
+    msg: "Github download url is {{ download_url }}"
+
+- name: Ensure target directory exists
+  ansible.builtin.file:
+    path: "{{ ghfl_arg.dest }}"
+    state: directory
+    mode: '0774'
+
+- name: Download latest
+  ansible.builtin.get_url:
+    url: "{{ download_url }}"
+    dest: "{{ ghfl_arg.dest }}/{{ ghfl_arg.file }}"
+    mode: '0774'

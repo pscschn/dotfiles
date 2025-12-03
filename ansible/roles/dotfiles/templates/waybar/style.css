@@ -1,10 +1,9 @@
 @define-color text  {{ global_colorscheme.text.hex }};
 @define-color base {{ global_colorscheme.base.hex }};
 @define-color mantle {{ global_colorscheme.mantle.hex }};
-@define-color crust {{ global_colorscheme.crust.hex }};
-@define-color purple {{ global_colorscheme.purplegray.hex }};
-@define-color mauve {{ global_colorscheme.mauve.hex }};
-@define-color blue {{ global_colorscheme.blue.hex }};
+@define-color border {{ global_colorscheme.border.hex }};
+@define-color purple {{ global_colorscheme.purple.hex }};
+@define-color active {{ global_colorscheme.blue.hex }};
 
 
 * {
@@ -73,12 +72,12 @@ window#waybar {
   transition:.1s;
   border-radius:0px;
   font-weight: normal;
-  color: @mauve;
+  color: @purple;
 }
 
 #workspaces button.active {
   border-radius: 0px;
-  color: @blue;
+  color: @active;
   transition: 0;
 }
 
@@ -91,7 +90,7 @@ window#waybar {
 }
 
 #workspaces button.active:hover *{
-  color: @blue;
+  color: @active;
 }
 
 #workspaces button span,

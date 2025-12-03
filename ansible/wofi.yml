@@ -1,7 +1,6 @@
 ---
 - name: Deploy wofi
   hosts: all
-  become: true
   vars_files:
     - ./vars/fonts.yml
     - ./vars/colorscheme.yml

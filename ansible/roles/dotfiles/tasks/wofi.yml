@@ -7,6 +7,7 @@
   ansible.builtin.package:
     name: "wofi"
     state: present
+  become: true
 
 - name: Ensure wofi config directory exists
   ansible.builtin.file:

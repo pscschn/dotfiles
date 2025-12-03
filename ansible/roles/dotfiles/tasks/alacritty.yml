@@ -4,6 +4,7 @@
   ansible.builtin.package:
     name: alacritty
     state: present
+  become: true
 
 - name: Ensure the alacritty config directory exists
   ansible.builtin.file:
@@ -12,6 +13,7 @@
     mode: '0775'
     owner: "{{ target_user }}"
     recurse: true
+  become: true
 
 - name: Render the alacritty config file
   ansible.builtin.template:

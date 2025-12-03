@@ -1,0 +1,64 @@
+---
+
+- name: Ensure that firefox is installed
+  ansible.builtin.package:
+    name: firefox
+    state: present
+  become: true
+
+- name: Run firefox once
+  ansible.builtin.shell:
+    timeout -k 3 -p 4s firefox --headless --browser
+  changed_when: false
+  ignore_errors: true
+
+
+- name: Ensure write permissions on mozilla directory
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.mozilla"
+    state: directory
+    recurse: true
+    owner: "{{ target_user }}"
+    mode: "0755"
+  become: true
+
+- name: Ensure plugins are installed
+  vars:
+    firefox_plugins:
+      - repo: "gorhill/uBlock"
+        url_template: "https://github.com/gorhill/uBlock/releases/download/$tag/uBlock0_$tag.firefox.xpi"
+        dest: "{{ firefox_default_profile_path }}/extensions"
+        file: "uBlock0@raymondhill.net.xpi"
+      - repo: "OhMyGuus/I-Still-Dont-Care-About-Cookies"
+        url_template: "https://github.com/OhMyGuus/I-Still-Dont-Care-About-Cookies/releases/download/v$tag/istilldontcareaboutcookies-$tag.xpi"
+        dest: "{{ firefox_default_profile_path }}/extensions"
+        file: "idcac-pub@guus.ninja.xpi"
+  block:
+    - name: Determine default profile
+      ansible.builtin.include_tasks: roles/util/tasks/firefox_get_default.yml
+
+    - name: Install plugins
+      ansible.builtin.include_tasks: roles/util/tasks/gh_fetch_latest.yml
+      loop: "{{ firefox_plugins }}"
+      loop_control:
+        loop_var: ghfl_arg
+
+- name: Render firefox template files
+  ansible.builtin.template:
+    owner: "{{ target_user }}"
+    mode: u=rwx,g=rw,o=r
+    src: "{{ role_path }}/templates/firefox/prefs.js.j2"
+    dest: "{{ firefox_default_profile_path }}/prefs.js"
+
+- name: Copy firefox extensions json
+  ansible.builtin.copy:
+    src: "{{ role_path }}/templates/firefox/extensions.json.j2"
+    dest: "{{ firefox_default_profile_path }}/extensions.json"
+    owner: "{{ target_user }}"
+    mode: u=rwx,g=rw,o=r
+
+- name: Run firefox to apply changes
+  ansible.builtin.shell:
+    timeout -k 3 -p 4s firefox --headless --browser
+  changed_when: false
+  ignore_errors: true

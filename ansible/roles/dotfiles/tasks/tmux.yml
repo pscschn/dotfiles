@@ -7,6 +7,7 @@
   ansible.builtin.package:
     name: tmux
     state: present
+  become: true
 
 - name: Ensure TPM directory exists
   ansible.builtin.file:
@@ -34,6 +35,12 @@
     mode: "0755"
   become: true
 
+- name: Ensure .bashrc exists
+  ansible.builtin.file:
+    path: "/home/{{ target_user }}/.bashrc"
+    owner: "{{ target_user }}"
+    state: touch
+
 - name: Ensure history sharing is enabled in .bashrc
   ansible.builtin.lineinfile:
     path: "/home/{{ target_user }}/.bashrc"
@@ -55,6 +62,7 @@
   become_user: "{{ target_user }}"
   changed_when: false
   ignore_errors: true
+
 # - name: Install tmux tpm plugins
 #   ansible.builtin.command: tmux run-shell "{{ tmux_plugins }}/tpm/scripts/install_plugins.sh"
 #   become: true
