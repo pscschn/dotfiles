@@ -10,6 +10,7 @@
   ],
   "modules-right" : [
     "custom/media",
+		"custom/hyprsunset",
     "pulseaudio",
     "clock"
   ],
@@ -41,6 +42,15 @@
     "interval" : 5,
     "max-length": 20,
     "exec" : "$HOME/.config/waybar/get_media.sh"
+  },
+  "custom/hyprsunset": {
+    "format": "{}",
+    "exec": "$HOME/.config/waybar/hyprsunset.sh",
+    "return-type": "json",
+    "interval": 2,
+    "on-click": "$HOME/.config/waybar/hyprsunset.sh toggle",
+    "on-scroll-up": "$HOME/.config/waybar/hyprsunset.sh scroll_up",
+    "on-scroll-down": "$HOME/.config/waybar/hyprsunset.sh scroll_down"
   },
   "pulseaudio" : {
     "format" : "{icon} {volume}%",

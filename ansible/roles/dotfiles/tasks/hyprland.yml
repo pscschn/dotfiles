@@ -10,6 +10,7 @@
       - "hyprland"
       - "hyprshot"
       - "hyprpaper"
+      - "hyprsunset"
     state: present
   become: true
 
