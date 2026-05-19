@@ -1,0 +1,8 @@
+---
+
+- name: Render the gitconfig file
+  ansible.builtin.template:
+    src: "{{ role_path }}/templates/git/gitconfig.j2"
+    dest: "/home/{{ target_user }}/.gitconfig"
+    owner: "{{ target_user }}"
+    mode: u=rw,g=rw,o=r

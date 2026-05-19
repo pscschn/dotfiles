@@ -11,14 +11,14 @@
 
 - name: Ensure Fastfetch config directory exists
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.local/share/fastfetch"
+    path: "{{ ansible_facts.env.HOME }}/.local/share/fastfetch"
     state: directory
     mode: '0755'
     owner: "{{ target_user }}"
 
 - name: Ensure Fastfetch directories exist
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.local/share/fastfetch/{{ item.path }}"
+    path: "{{ ansible_facts.env.HOME }}/.local/share/fastfetch/{{ item.path }}"
     state: directory
     mode: '0755'
     owner: "{{ target_user }}"
@@ -28,7 +28,7 @@
 - name: Copy Fastfetch configuration files
   ansible.builtin.template:
     src: "{{ item.src }}"
-    dest: "{{ ansible_env.HOME }}/.local/share/fastfetch/{{ item.path }}"
+    dest: "{{ ansible_facts.env.HOME }}/.local/share/fastfetch/{{ item.path }}"
     mode: '0644'
     owner: "{{ target_user }}"
   with_community.general.filetree: "{{ ff_preset_template }}"
@@ -36,7 +36,7 @@
 
 - name: Add fastfetch command to bashrc
   ansible.builtin.lineinfile:
-    path: "{{ ansible_env.HOME }}/.bashrc"
+    path: "{{ ansible_facts.env.HOME }}/.bashrc"
     regexp: '^fastfetch -c'
     line: "fastfetch -c arch"
     insertafter: EOF

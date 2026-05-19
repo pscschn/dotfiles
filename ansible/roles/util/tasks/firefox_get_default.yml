@@ -1,6 +1,6 @@
 - name: Read Firefox installs.ini
   slurp:
-    src: "{{ ansible_env.HOME }}/.mozilla/firefox/installs.ini"
+    src: "{{ ansible_facts.env.HOME }}/.config/mozilla/firefox/installs.ini"
   register: installs_ini_raw
   ignore_errors: true
 
@@ -19,7 +19,7 @@
 
 - name: Set full path for default Firefox profile
   set_fact:
-    firefox_default_profile_path: "{{ ansible_env.HOME }}/.mozilla/firefox/{{ firefox_default_profile_relpath }}"
+    firefox_default_profile_path: "{{ ansible_facts.env.HOME }}/.config/mozilla/firefox/{{ firefox_default_profile_relpath }}"
 
 - name: Display the detected default Firefox profile directory
   debug:

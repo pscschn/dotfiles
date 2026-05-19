@@ -1,0 +1,204 @@
+[  
+    // Navigate right Ctrl+w l
+    {
+        "key": "ctrl+w l",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "findInputFocussed || (editorTextFocus && vim.mode != 'Insert') || sideBarFocus"
+    },   
+
+    // Navigate up Ctrl+w k
+    {
+        "key": "ctrl+w k",
+        "command": "workbench.action.navigateUp",
+        "when": "terminalFocus || (editorTextFocus && vim.mode == 'Normal')"
+    }, 
+    
+    
+    // Navigate down Ctrl+w j
+    {
+        "key": "ctrl+w j",
+        "command": "workbench.action.navigateDown",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    
+    // Navigate left Ctrl+w h
+    {
+        "key": "ctrl+w h",
+        "command": "workbench.action.navigateLeft",
+        "when": "(editorTextFocus && vim.mode == 'Normal') || terminalFocus"
+    },
+    
+
+    // Find actions space+f  ...
+    {   /* find editors */
+        "key": "space f e",
+        "command": "workbench.action.showAllEditors",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    {   /* find files */
+        "key": "space f f",
+        "command": "workbench.action.quickOpen",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    {   /* find grep */
+        "key": "space f g",
+        "command": "workbench.action.findInFiles",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    {   /* Find symbols */
+        "key": "space f s",
+        "command": "workbench.action.gotoSymbol",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+
+
+
+    // Toggle actions space+t ...
+   {
+        "key": "space t s",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "editorTextFocus  && vim.mode == 'Normal'"
+    },
+    {
+        "key": "space t s",
+        "command": "workbench.view.explorer",
+        "when": "editorTextFocus && !sideBarVisible && vim.mode == 'Normal'"
+    },
+    {   /* toggle terminal */
+        "key": "space t t",
+        "command": "workbench.action.togglePanel",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+
+    {   /* hide activity */
+        "key": "space t a h",
+        "command": "workbench.action.activityBarLocation.hide",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+
+    {   /* toggle activity */
+        "key": "space t a s",
+        "command": "workbench.action.activityBarLocation.default",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+
+
+
+    // Language / Coding space+l ...
+
+    {   /* Hover Action */
+        "key": "shift k",
+        "command": "workbench.action.showHover",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    {   /* code action */
+        "key": "space l a",
+        "command": "editor.action.codeAction",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    {   /* rename */
+        "key": "space l Shift+R",
+        "command": "editor.action.rename",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    {   /* rename */
+        "key": "space l d",
+        "command": "editor.action.revealDefinition",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    {   /* references */
+        "key": "space l r",
+        "command": "editor.action.goToReferences",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    {   /* references */
+        "key": "space l g",
+        "command": "editor.action.reference",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+
+
+    // File tree
+    {  
+        "key": "j",
+        "command": "list.focusDown",
+        "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsroot && !explorerResourceReadonly"
+    },
+    {   
+        "key": "k",
+        "command": "list.focusUp",
+        "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsroot && !explorerResourceReadonly"
+    } ,
+    {   
+        "key": "l",
+        "command": "list.expand",
+        "when": "((filesExplorerFocus || solutionExplorer.canMove) && foldersViewVisible && !explorerResourceIsroot && !explorerResourceReadonly) && !inputFocus && !editorFocus"
+    },
+    {
+        "key": "h",
+        "command": "list.collapse",
+        "when": "((filesExplorerFocus || solutionExplorer.canMove ) && foldersViewVisible && !explorerResourceIsroot && !explorerResourceReadonly) && !inputFocus && !editorFocus"
+    },
+    {
+        "key": "y y",
+        "command": "filesExplorer.copy",
+        "when": "((filesExplorerFocus || solutionExplorer.canMove) && foldersViewVisible && !explorerResourceIsroot && !explorerResourceReadonly) && !editorFocus && !inputFocus"
+    },
+    {
+        "key": "p",
+        "command": "filesExplorer.paste",
+        "when": "((filesExplorerFocus || solutionExplorer.canMove) && foldersViewVisible && !explorerResourceIsroot && !explorerResourceReadonly) && !inputFocus && !editorFocus"
+    },
+    {
+        "key": "d d",
+        "command": "deleteFile",
+        "when": "((filesExplorerFocus || solutionExplorer.canMove) && foldersViewVisible && !explorerResourceIsroot && !explorerResourceReadonly) && !inputFocus && !editorFocus"
+    },
+
+
+    // Tmux style splits
+    {
+        "key": "Ctrl+s Shift+5",
+        "command": "runCommands",
+        "when": "editorTextFocus && vim.mode == 'Normal'",
+        "args": {
+            "commands": [
+                "workbench.action.splitEditorRight"
+            ]
+        }
+    },
+    {
+        "key": "Ctrl+s Shift+'",
+        "command": "runCommands",
+        "when": "editorTextFocus && vim.mode == 'Normal'",
+        "args": {
+            "commands": [
+                "workbench.action.splitEditorDown"
+            ]
+        }
+    },
+
+    // Other
+    {
+        "key": "escape",
+        "command": "search.action.focusSearchList",
+        "when": "inputFocus && !editorFocus && vim.mode != 'Insert' && (searchViewletFocus || inSearchEditor )" 
+    }, 
+
+
+    // Remove vscode native keybindings
+    {
+        "key": "ctrl+w",
+        "command": "-workbench.action.closeGroup",
+        "when": "activeEditorGroupEmpty && multipleEditorGroups"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "-workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "-workbench.action.terminal.killEditor",
+        "when": "terminalEditorFocus && terminalFocus && terminalHasBeenCreated || terminalEditorFocus && terminalFocus && terminalProcessSupported"
+    }
+]

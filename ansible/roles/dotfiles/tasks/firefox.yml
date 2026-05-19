@@ -8,14 +8,14 @@
 
 - name: Run firefox once
   ansible.builtin.shell:
-    timeout -k 3 -p 4s firefox --headless --browser
+    timeout -k 7 -p 7s firefox --headless --browser --first-startup --new-window
   changed_when: false
   ignore_errors: true
 
 
 - name: Ensure write permissions on mozilla directory
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.mozilla"
+    path: "{{ ansible_facts.env.HOME }}/.config/mozilla"
     state: directory
     recurse: true
     owner: "{{ target_user }}"
@@ -33,6 +33,7 @@
         url_template: "https://github.com/OhMyGuus/I-Still-Dont-Care-About-Cookies/releases/download/v$tag/istilldontcareaboutcookies-$tag.xpi"
         dest: "{{ firefox_default_profile_path }}/extensions"
         file: "idcac-pub@guus.ninja.xpi"
+        tag: "1.1.8"
   block:
     - name: Determine default profile
       ansible.builtin.include_tasks: roles/util/tasks/firefox_get_default.yml
@@ -59,6 +60,6 @@
 
 - name: Run firefox to apply changes
   ansible.builtin.shell:
-    timeout -k 3 -p 4s firefox --headless --browser
+    timeout -k 6 -p 4s firefox --headless --browser --first-startup --new-window
   changed_when: false
   ignore_errors: true

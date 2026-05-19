@@ -1,0 +1,16 @@
+{% if git_user is defined and git_email is defined %}
+[user]
+    name = {{ git_user }}
+    email = {{ git_email }}
+{% endif %}
+
+[merge]
+	tool = "nvim"
+
+[mergetool]
+	keepBackup = false
+	prompt = false
+
+[mergetool "nvim"]
+	cmd = "nvim -d -c \"wimcmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+

@@ -16,9 +16,17 @@
     return_content: false
   register: latest_release
 
-- name: Extract tag number from Location header
-  ansible.builtin.set_fact:
-    latest_tag: "{{ latest_release.url.split('/')[-1] | regex_replace('^[vV]', '') }}"
+- name: Ensure latest tag is defined
+  block:
+    - name: Extract tag number from Location header
+      ansible.builtin.set_fact:
+        latest_tag: "{{ latest_release.url.split('/')[-1] | regex_replace('^[vV]', '') }}"
+      when: ghfl_arg.tag is not defined
+
+    - name: Set tag number from arguments
+      ansible.builtin.set_fact:
+        latest_tag: "{{ ghfl_arg.tag }}"
+      when: ghfl_arg.tag is defined
 
 - name: Debug latest tag
   ansible.builtin.debug:

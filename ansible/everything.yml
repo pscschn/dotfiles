@@ -8,6 +8,7 @@
   vars:
     dotfile_tasks:
       - fonts.yml
+#      - git.yml
       - hyprland.yml
       - alacritty.yml
       - waybar.yml
@@ -15,7 +16,7 @@
       - mako.yml
       - nvim.yml
       - tmux.yml
-      - firefox.yml
+#     - firefox.yml
       - fastfetch.yml
   roles:
     - dotfiles
