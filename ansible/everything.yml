@@ -8,7 +8,7 @@
   vars:
     dotfile_tasks:
       - fonts.yml
-#      - git.yml
+      - git.yml
       - hyprland.yml
       - alacritty.yml
       - waybar.yml
